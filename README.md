@@ -16,3 +16,37 @@ Identify and apply relevant design patterns to improve the overall design and ma
 Nice to have
 UML diagrams illustrating the class structure and relationships.
 Documentation explaining the design choices, rationale, and any design patterns used.
+
+<!--
+Factory Method Pattern:
+
+Use the Factory Method pattern to create rockets of different types. Create a RocketFactory that has methods for creating different types of rockets. This allows for easy addition of new rocket types without modifying existing code.
+Abstract Factory Pattern:
+
+Extend the Factory Method pattern by using the Abstract Factory pattern. Create an abstract factory interface RocketAbstractFactory with methods for creating rockets with varying capabilities (cargo capacity, maximum speed, fuel efficiency). Implement concrete factories for each rocket type.
+Strategy Pattern:
+
+Implement the Strategy pattern for the launch locations. Define a LaunchConditions interface with methods like checkWeather, checkFuelAvailability, etc. Create concrete classes for each launch location implementing this interface, allowing launch locations to have unique conditions.
+Observer Pattern:
+
+Apply the Observer pattern for the logging and monitoring system. Have a Logger or Monitor as the subject that notifies observers (loggers) about critical events such as successful launches, failures, and mission completions.
+Singleton Pattern:
+
+Use the Singleton pattern for the AllocationManager to ensure that there is only one instance responsible for allocating rockets to missions. This ensures centralized control over the allocation process.
+Command Pattern:
+
+Implement the Command pattern for mission execution. Define a MissionCommand interface with an execute method. Create concrete command classes for each mission type. This way, you can encapsulate a request (mission) as an object, parameterize it with the required rocket type, launch location, and other parameters, and execute it when needed.
+Decorator Pattern:
+
+Apply the Decorator pattern for rockets. Define a base Rocket class and have decorator classes for additional capabilities. This allows for easy addition of new capabilities without modifying the existing rocket classes.
+Adapter Pattern:
+
+Use the Adapter pattern to make existing rockets compatible with new requirements. For example, if a new launch location has different interface requirements, create adapters to make the rockets compatible with that launch location.
+Composite Pattern:
+
+Apply the Composite pattern for missions. Define a Mission interface, and have composite classes for mission types that consist of multiple sub-missions. This allows for complex missions composed of simpler ones.
+Concurrency Patterns (e.g., Locks, Semaphores):
+
+Address the potential need for concurrent rocket launches and missions using concurrency patterns. Ensure proper synchronization mechanisms to handle simultaneous launches and missions.
+
+ -->

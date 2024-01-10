@@ -1,4 +1,4 @@
-import { LaunchConditionsStrategy } from "../../interfaces/launch.interface";
+import { LaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
 
 export class LaunchLocation {
   private conditionsStrategy: LaunchConditionsStrategy;

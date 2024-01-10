@@ -1,4 +1,4 @@
-import { RocketFactoryType } from "../../enums";
+import { RocketFactoryType } from "../../common/enums";
 import { CargoRocket } from "./CargoRocket";
 import { ExplorerRocket } from "./ExplorerRocket";
 import { LunarRocket } from "./LunarRocket";

@@ -2,7 +2,7 @@ import { BadWeatherLaunchConditions } from "./app/launch-loctions/BadWeatherLaun
 import { LaunchLocation } from "./app/launch-loctions/LaunchLocation";
 import { NormalLaunchConditions } from "./app/launch-loctions/NormalLaunchConditions";
 import { RocketFactory } from "./app/rockets/RocketFactory";
-import { RocketFactoryType } from "./enums";
+import { RocketFactoryType } from "./common/enums";
 
 const rocketFactory = new RocketFactory();
 
