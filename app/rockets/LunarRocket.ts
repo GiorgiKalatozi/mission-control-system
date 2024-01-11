@@ -1,4 +1,4 @@
-import { Rocket } from "./Rocket";
+import { Rocket } from "../base/Rocket";
 
 export class LunarRocket extends Rocket {
   constructor() {
