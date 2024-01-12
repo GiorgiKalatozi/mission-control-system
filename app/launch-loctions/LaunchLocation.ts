@@ -1,4 +1,7 @@
-import { ILaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
+import {
+  ILaunchCommand,
+  ILaunchConditionsStrategy,
+} from "../../common/interfaces/launch.interface";
 import { IRocketObserver } from "../../common/interfaces/rocket.interface";
 import { Rocket } from "../base/Rocket";
 
@@ -7,6 +10,7 @@ export class LaunchLocation {
   private conditions: ILaunchConditionsStrategy;
   private rockets: Rocket[] = [];
   private observers: IRocketObserver[] = [];
+  private launchCommands: ILaunchCommand[] = [];
 
   constructor(name: string, conditions: ILaunchConditionsStrategy) {
     this.name = name;
@@ -23,6 +27,9 @@ export class LaunchLocation {
       this.rockets.forEach((rocket) => {
         rocket.launch();
       });
+      this.launchCommands.forEach((command) => {
+        command.execute();
+      });
     }
   }
 
@@ -33,6 +40,10 @@ export class LaunchLocation {
 
   public addObserver(observer: IRocketObserver): void {
     this.observers.push(observer);
+  }
+
+  public addLaunchCommand(command: ILaunchCommand): void {
+    this.launchCommands.push(command);
   }
 
   private notifyObservers(): void {

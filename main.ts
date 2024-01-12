@@ -3,6 +3,7 @@ import { LaunchLocation } from "./app/launch-loctions/LaunchLocation";
 import { NormalLaunchConditions } from "./app/launch-loctions/NormalLaunchConditions";
 import { RocketBuilder } from "./app/rockets/RocketBuilder";
 import { RocketFactory } from "./app/rockets/RocketFactory";
+import { RocketLaunchCommand } from "./app/rockets/RocketLaunchCommand";
 import { RocketType } from "./common/enums";
 
 const rocketFactory = new RocketFactory();
@@ -31,6 +32,12 @@ const launchLocation2 = new LaunchLocation("Launch B", badWeatherConditions);
 
 launchLocation1.addRocket(lunarRocket);
 launchLocation2.addRocket(marsRocket);
+
+const launchCommand1 = new RocketLaunchCommand(explorerRocket);
+const launchCommand2 = new RocketLaunchCommand(lunarRocket);
+
+launchLocation1.addLaunchCommand(launchCommand1);
+launchLocation2.addLaunchCommand(launchCommand2);
 
 launchLocation1.launchRockets(); // Successful launch
 launchLocation2.launchRockets(); // Launch postponed due to bad weather
