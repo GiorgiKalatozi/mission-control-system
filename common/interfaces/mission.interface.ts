@@ -4,6 +4,10 @@ export interface IMission {
   execute(): void;
 }
 
+export interface ICommand {
+  execute(): void;
+}
+
 export interface IMissionBuilder {
   setRocketType(rocketType: string): IMissionBuilder;
   setLaunchLocation(launchLocation: string): IMissionBuilder;

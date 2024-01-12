@@ -11,6 +11,7 @@ import { RocketType } from "./common/enums";
 import { MissionControlSystem } from "./app/base/MissionControlSystem";
 import { MissionBuilder } from "./app/missions/MissionBuilder";
 import { LoggingMonitoringSystem } from "./app/logging-system/LoggingMonitoringSystem";
+import { ExecuteMissionCommand } from "./app/missions/ExecuteMissionCommand";
 
 const rocketFactory = new RocketFactory();
 
@@ -88,3 +89,11 @@ lunarRocket.notifyEventObservers("Rocket Launch Failure");
 
 // Simulate a mission completion
 humanSpaceflightMission.notifyEventObservers("Mission Completion");
+
+const launchCommand = new RocketLaunchCommand(marsRocket);
+const missionCommand = new ExecuteMissionCommand(mission2);
+
+missionControl.addCommand(launchCommand);
+missionControl.addCommand(missionCommand);
+
+missionControl.executeCommandsConcurrently();
