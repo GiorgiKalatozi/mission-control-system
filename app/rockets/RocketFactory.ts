@@ -1,16 +1,16 @@
-import { RocketFactoryType } from "../../common/enums";
+import { RocketType } from "../../common/enums";
 import { ExplorerRocket } from "./ExplorerRocket";
 import { LunarRocket } from "./LunarRocket";
 import { MarsRocket } from "./MarsRocket";
 
 export class RocketFactory {
-  createRocket(type: RocketFactoryType) {
+  createRocket(type: RocketType) {
     switch (type.toLowerCase()) {
-      case RocketFactoryType.Mars:
+      case RocketType.Mars:
         return new MarsRocket();
-      case RocketFactoryType.Lunar:
+      case RocketType.Lunar:
         return new LunarRocket();
-      case RocketFactoryType.Explorer:
+      case RocketType.Explorer:
         return new ExplorerRocket();
       default:
         throw new Error(`Invalid rocket type: ${type}`);
