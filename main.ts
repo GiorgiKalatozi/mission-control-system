@@ -79,3 +79,12 @@ planetaryExplorationMission.addObserver(loggingMonitoringSystem);
 explorerRocket.launch();
 launchLocation1.notifyObservers();
 planetaryExplorationMission.notifyObservers();
+
+// Simulate a successful launch
+explorerRocket.notifyEventObservers("Successful Rocket Launch");
+
+// Simulate a launch failure
+lunarRocket.notifyEventObservers("Rocket Launch Failure");
+
+// Simulate a mission completion
+humanSpaceflightMission.notifyEventObservers("Mission Completion");

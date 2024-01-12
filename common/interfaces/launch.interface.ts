@@ -4,3 +4,7 @@ export interface ILaunchConditionsStrategy {
 export interface ILaunchCommand {
   execute(): void;
 }
+
+export interface IEventObserver {
+  update(event: string): void;
+}
