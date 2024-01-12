@@ -10,6 +10,7 @@ import { RocketLaunchCommand } from "./app/rockets/RocketLaunchCommand";
 import { RocketType } from "./common/enums";
 import { MissionControlSystem } from "./app/base/MissionControlSystem";
 import { MissionBuilder } from "./app/missions/MissionBuilder";
+import { LoggingMonitoringSystem } from "./app/logging-system/LoggingMonitoringSystem";
 
 const rocketFactory = new RocketFactory();
 
@@ -68,3 +69,13 @@ const mission2 = missionBuilder
 const missionControl = new MissionControlSystem(missionBuilder);
 
 missionControl.createMission().execute();
+
+const loggingMonitoringSystem = new LoggingMonitoringSystem();
+
+explorerRocket.addObserver(loggingMonitoringSystem);
+launchLocation1.addObserver(loggingMonitoringSystem);
+planetaryExplorationMission.addObserver(loggingMonitoringSystem);
+
+explorerRocket.launch();
+launchLocation1.notifyObservers();
+planetaryExplorationMission.notifyObservers();

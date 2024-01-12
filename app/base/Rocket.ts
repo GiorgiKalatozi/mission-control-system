@@ -1,6 +1,6 @@
-import { RocketBuilder } from "../rockets/RocketBuilder";
+import { ObservableEntity } from "../../services/ObservableEntity";
 
-export class Rocket {
+export class Rocket extends ObservableEntity {
   private type: string;
   private cargoCapacity: number;
   private maxSpeed: number;
@@ -12,6 +12,7 @@ export class Rocket {
     maxSpeed: number,
     fuelEfficiency: number
   ) {
+    super();
     this.type = type;
     this.cargoCapacity = cargoCapacity;
     this.maxSpeed = maxSpeed;
@@ -24,5 +25,7 @@ export class Rocket {
 
   public launch(): void {
     console.log(`Rocket ${this.type} launched.`);
+    // Notify observers (logging and monitoring system) about the status change
+    this.notifyObservers();
   }
 }

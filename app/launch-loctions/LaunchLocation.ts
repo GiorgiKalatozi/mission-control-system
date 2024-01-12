@@ -2,17 +2,17 @@ import {
   ILaunchCommand,
   ILaunchConditionsStrategy,
 } from "../../common/interfaces/launch.interface";
-import { IRocketObserver } from "../../common/interfaces/rocket.interface";
+import { ObservableEntity } from "../../services/ObservableEntity";
 import { Rocket } from "../base/Rocket";
 
-export class LaunchLocation {
+export class LaunchLocation extends ObservableEntity {
   private name: string;
   private conditions: ILaunchConditionsStrategy;
   private rockets: Rocket[] = [];
-  private observers: IRocketObserver[] = [];
   private launchCommands: ILaunchCommand[] = [];
 
   constructor(name: string, conditions: ILaunchConditionsStrategy) {
+    super();
     this.name = name;
     this.conditions = conditions;
   }
@@ -30,6 +30,7 @@ export class LaunchLocation {
       this.launchCommands.forEach((command) => {
         command.execute();
       });
+      this.notifyObservers();
     }
   }
 
@@ -38,17 +39,7 @@ export class LaunchLocation {
     this.notifyObservers();
   }
 
-  public addObserver(observer: IRocketObserver): void {
-    this.observers.push(observer);
-  }
-
   public addLaunchCommand(command: ILaunchCommand): void {
     this.launchCommands.push(command);
-  }
-
-  private notifyObservers(): void {
-    this.observers.forEach((observer) => {
-      observer.update();
-    });
   }
 }
