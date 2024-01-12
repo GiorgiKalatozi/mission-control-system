@@ -1,6 +1,6 @@
-import { LaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
+import { ILaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
 
-export class BadWeatherLaunchConditions implements LaunchConditionsStrategy {
+export class BadWeatherLaunchConditions implements ILaunchConditionsStrategy {
   canLaunch(): boolean {
     return false;
   }

@@ -21,4 +21,8 @@ export class Rocket {
   public describe(): string {
     return `${this.type} Rocket - Cargo Capacity: ${this.cargoCapacity}, Max Speed: ${this.maxSpeed}, Fuel Efficiency: ${this.fuelEfficiency}`;
   }
+
+  public launch(): void {
+    console.log(`Rocket ${this.type} launched.`);
+  }
 }

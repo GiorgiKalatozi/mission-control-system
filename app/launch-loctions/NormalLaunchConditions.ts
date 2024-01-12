@@ -1,6 +1,6 @@
-import { LaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
+import { ILaunchConditionsStrategy } from "../../common/interfaces/launch.interface";
 
-export class NormalLaunchConditions implements LaunchConditionsStrategy {
+export class NormalLaunchConditions implements ILaunchConditionsStrategy {
   canLaunch(): boolean {
     return true;
   }

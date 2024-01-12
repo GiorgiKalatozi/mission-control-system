@@ -1,3 +1,3 @@
-export interface LaunchConditionsStrategy {
+export interface ILaunchConditionsStrategy {
   canLaunch(): boolean;
 }
