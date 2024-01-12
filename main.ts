@@ -8,7 +8,8 @@ import { RocketBuilder } from "./app/rockets/RocketBuilder";
 import { RocketFactory } from "./app/rockets/RocketFactory";
 import { RocketLaunchCommand } from "./app/rockets/RocketLaunchCommand";
 import { RocketType } from "./common/enums";
-import { Mission } from "./app/base/Mission";
+import { MissionControlSystem } from "./app/base/MissionControlSystem";
+import { MissionBuilder } from "./app/missions/MissionBuilder";
 
 const rocketFactory = new RocketFactory();
 
@@ -50,11 +51,20 @@ const satelliteDeploymentMission = new SatelliteDeploymentMission();
 const humanSpaceflightMission = new HumanSpaceflightMission();
 const planetaryExplorationMission = new PlanetaryExplorationMission();
 
-const missionControl = new Mission(satelliteDeploymentMission);
-missionControl.executeMission(); // Executing Satellite Deployment Mission.
+const missionBuilder = new MissionBuilder();
 
-missionControl.setMission(humanSpaceflightMission);
-missionControl.executeMission(); // Executing Manned Spaceflight Mission.
+const mission1 = missionBuilder
+  .setRocketType(RocketType.Explorer)
+  .setLaunchLocation("Launch Site A")
+  .setMissionSpecificParameters({ fact: "Earth is the best planet" })
+  .build();
 
-missionControl.setMission(planetaryExplorationMission);
-missionControl.executeMission(); // Executing Planetary Exploration Mission.
+const mission2 = missionBuilder
+  .setRocketType(RocketType.Mars)
+  .setLaunchLocation("Launch Site B")
+  .setMissionSpecificParameters({ destination: "Mars" })
+  .build();
+
+const missionControl = new MissionControlSystem(missionBuilder);
+
+missionControl.createMission().execute();

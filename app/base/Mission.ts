@@ -1,17 +1,13 @@
-import { IMission } from "../../common/interfaces/mission.interface";
-
 export class Mission {
-  private mission: IMission;
+  public rocketType: string;
+  public launchLocation: string;
+  public specificParameters: any;
 
-  constructor(mission: IMission) {
-    this.mission = mission;
-  }
-
-  public setMission(mission: IMission): void {
-    this.mission = mission;
-  }
-
-  public executeMission(): void {
-    this.mission.execute();
+  public execute(): void {
+    console.log(
+      `Executing Mission - Rocket: ${this.rocketType}, Location: ${
+        this.launchLocation
+      }, Parameters: ${JSON.stringify(this.specificParameters)}`
+    );
   }
 }
