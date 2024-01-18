@@ -2,10 +2,10 @@ import {
   ILaunchCommand,
   ILaunchConditionsStrategy,
 } from "../../common/interfaces/launch.interface";
-import { ObservableEntity } from "../../services/ObservableEntity";
+import { ObservableSubject } from "../../common/patterns/observer.pattern";
 import { Rocket } from "../base/Rocket";
 
-export class LaunchLocation extends ObservableEntity {
+export class LaunchLocation extends ObservableSubject {
   private name: string;
   private conditions: ILaunchConditionsStrategy;
   private rockets: Rocket[] = [];

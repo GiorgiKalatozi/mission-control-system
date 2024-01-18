@@ -1,6 +1,6 @@
-import { ObservableEntity } from "../../services/ObservableEntity";
+import { ObservableSubject } from "../../common/patterns/observer.pattern";
 
-export class Rocket extends ObservableEntity {
+export class Rocket extends ObservableSubject {
   private type: string;
   private cargoCapacity: number;
   private maxSpeed: number;

@@ -20,7 +20,7 @@ export class MissionControlSystem {
     return this.missionBuilder.build();
   }
 
-  executeCommandsConcurrently(): void {
+  public executeCommandsConcurrently(): void {
     this.commandQueue.map((command) => {
       command.execute();
       console.log("All commands executed.");

@@ -1,7 +1,7 @@
-import { IEventObserver } from "../common/interfaces/launch.interface";
-import { IObserver, ISubject } from "../common/interfaces/rocket.interface";
+import { IEventObserver } from "../interfaces/launch.interface";
+import { IObserver, ISubject } from "../interfaces/rocket.interface";
 
-export class ObservableEntity implements ISubject {
+export class ObservableSubject implements ISubject {
   private observers: IObserver[] = [];
   private eventObservers: IEventObserver[] = [];
 
